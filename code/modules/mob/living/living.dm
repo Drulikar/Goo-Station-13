@@ -189,6 +189,11 @@
 	//not if he's not CANPUSH of course
 	if(!(M.status_flags & CANPUSH))
 		return 1
+
+	//handle micro bumping on other intents
+	if(handle_micro_bump_other(M))
+		return 1
+
 	if(isliving(M))
 		var/mob/living/L = M
 		if(HAS_TRAIT(L, TRAIT_PUSHIMMUNE))
