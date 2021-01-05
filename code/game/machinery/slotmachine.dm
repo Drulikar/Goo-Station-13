@@ -90,6 +90,7 @@
 			to_chat(user, "<span class='notice'>You insert [C] into [src]'s slot!</span>")
 			balance += C.value
 			qdel(C)
+			updateDialog()
 	else
 		return ..()
 
@@ -145,6 +146,7 @@
 	else if(href_list["refund"])
 		give_coins(balance)
 		balance = 0
+		updateDialog()
 
 /obj/machinery/computer/slot_machine/emp_act(severity)
 	. = ..()
@@ -246,6 +248,7 @@
 		to_chat(user, "<span class='notice'>You win three free games!</span>")
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)
+		playsound(src, 'goocode/sound/machines/delgcoinsdaily.ogg', 50, 0) // goostation
 
 	else
 		to_chat(user, "<span class='warning'>No luck!</span>")
@@ -277,6 +280,9 @@
 
 /obj/machinery/computer/slot_machine/proc/give_coins(amount)
 	var/cointype = obj_flags & EMAGGED ? /obj/item/coin/iron : /obj/item/coin/silver
+
+	if (amount > 0)
+		playsound(src, 'goocode/sound/machines/delgcoins.ogg', 50, 0) // goostation
 
 	if(!(obj_flags & EMAGGED))
 		amount = dispense(amount, cointype, null, 0)
