@@ -8,4 +8,8 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 
-yourckeygoeshere = Host
+Otherworldly = Host
+Shooks = Game Master
+Iskaudiir = GameAdmin
+Bloopyfoxx = GameAdmin
+Drathek = Game Master
