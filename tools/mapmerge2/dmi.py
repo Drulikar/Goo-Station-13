@@ -249,6 +249,7 @@ if __name__ == '__main__':
             dirnames.remove('.git')
         for filename in filenames:
             if filename.endswith('.dmi'):
+				print(f"Checking {filename}...")
                 Dmi.from_file(os.path.join(dirpath, filename))
                 count += 1
 
