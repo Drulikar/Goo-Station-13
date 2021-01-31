@@ -202,7 +202,7 @@ VOTE_AUTOTRANSFER_INTERVAL 18000
 ## autovote maximum votes until automatic transfer call. (default 4)
 ## Set to 0 to force automatic crew transfer after the 'vote_autotransfer_initial' elapsed.
 ## Set to -1 to disable the maximum votes cap.
-VOTE_AUTOTRANSFER_MAXIMUM 4
+VOTE_AUTOTRANSFER_MAXIMUM -1
 
 ## prevents dead players from voting or starting votes
 # NO_DEAD_VOTE
@@ -214,7 +214,7 @@ VOTE_AUTOTRANSFER_MAXIMUM 4
 # DONT_DEL_NEWMOB
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Yournamehere
+HOSTEDBY Goo
 
 ## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 ## Set to 1 to jobban them from those positions, set to 0 to allow them.
@@ -264,7 +264,7 @@ CHECK_RANDOMIZER
 # RULESURL https://katlin.dog/citadel-rules/main
 
 ## Github address
-# GITHUBURL https://github.com/Citadel-Station-13/Citadel-Station-13
+GITHUBURL https://github.com/Drulikar/Goo-Station-13
 
 ## Round specific stats address
 ## Link to round specific parsed logs; IE statbus. It is appended with the RoundID automatically by ticker/Reboot()
@@ -280,7 +280,7 @@ CHECK_RANDOMIZER
 ## Github repo id
 ##This can be found by going to https://api.github.com/users/<user name here>/repos
 ##Or https://api.github.com/orgs/<org name here>/repos if the repo owner is an organization
-# GITHUBREPOID 62485194
+GITHUBREPOID 326900971
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS https://citadel-station.net/forum/viewforum.php?f=8&sid=a0ce5331d5594ef6d49661609c6f4ff9
