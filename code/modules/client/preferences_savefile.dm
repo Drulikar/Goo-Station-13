@@ -271,7 +271,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			loadout_data["SAVE_[i]"] = list()
 		for(var/some_gear_item in saved_loadout_paths)
 			if(!ispath(text2path(some_gear_item)))
-				message_admins("Failed to copy item [some_gear_item] to new loadout system when migrating from version [current_version] to 40, issue: item is not a path")
+				log_game("Failed to copy item [some_gear_item] to new loadout system when migrating from version [current_version] to 40, issue: item is not a path")
 				continue
 			var/datum/gear/gear_item = text2path(some_gear_item)
 			if(!(initial(gear_item.loadout_flags) & LOADOUT_CAN_COLOR_POLYCHROMIC))
@@ -670,9 +670,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["chosen_limb_id"]					>> chosen_limb_id
 	S["hide_ckey"]						>> hide_ckey //saved per-character
 
-	//SKYRAT CHANGES
-	S["color_gear"]			>> color_gear
-	//
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -1105,9 +1102,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		WRITE_FILE(S["modified_limbs"]				, safe_json_encode(modified_limbs))
 	WRITE_FILE(S["chosen_limb_id"],   chosen_limb_id)
 
-	//SKYRAT CHANGES
-	WRITE_FILE(S["color_gear"]						, color_gear)
-	//
 
 	//gear loadout
 	if(length(loadout_data))
