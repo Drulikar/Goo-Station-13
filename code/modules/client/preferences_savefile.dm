@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	48
+#define SAVEFILE_VERSION_MAX	48.5
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -667,6 +667,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		modified_limbs = safe_json_decode(limbmodstr)
 	else
 		modified_limbs = list()
+
+	var/tcgcardstr
+	S["tcg_cards"] >> tcgcardstr
+	if(length(tcgcardstr))
+		tcg_cards = safe_json_decode(tcgcardstr)
+	else
+		tcg_cards = list()
+
+	var/tcgdeckstr
+	S["tcg_decks"] >> tcgdeckstr
+	if(length(tcgdeckstr))
+		tcg_decks = safe_json_decode(tcgdeckstr)
+	else
+		tcg_decks = list()
+
 	S["chosen_limb_id"]					>> chosen_limb_id
 	S["hide_ckey"]						>> hide_ckey //saved per-character
 
@@ -1108,6 +1123,16 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		S["loadout"] << safe_json_encode(loadout_data)
 	else
 		S["loadout"] << safe_json_encode(list())
+
+	if(length(tcg_cards))
+		S["tcg_cards"] << safe_json_encode(tcg_cards)
+	else
+		S["tcg_cards"] << safe_json_encode(list())
+
+	if(length(tcg_decks))
+		S["tcg_decks"] << safe_json_encode(tcg_decks)
+	else
+		S["tcg_decks"] << safe_json_encode(list())
 
 	cit_character_pref_save(S)
 
