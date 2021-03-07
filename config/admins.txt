@@ -9,7 +9,7 @@
 ###############################################################################################
 
 Otherworldly = Host
-Shooks = Game Master
+Shooks = GameMaster
 Iskaudiir = GameAdmin
 Bloopyfoxx = GameAdmin
-Drathek = Game Master
+Drathek = GameMaster
